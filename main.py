@@ -107,7 +107,12 @@ async def post():
 async def put():
     return {"message": "Hello"}
 import os
-
+from fastapi.responses import HTMLResponse
+@app.get("/", response_class=HTMLResponse)
+async def serve_html():
+    file_path = os.path.join(os.path.dirname(__file__), "index.html")
+    with open(file_path, "r") as file:
+        return file.read()
 port = int(os.environ.get("PORT", 8080))  # Use Railway's assigned port
 
 if __name__ == "__main__":
