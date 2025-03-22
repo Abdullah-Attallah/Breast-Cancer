@@ -3,7 +3,7 @@ from pydantic import BaseModel
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import HTMLResponse
 import joblib
-import unicorn 
+import uvicorn 
 import pandas as pd
 app = FastAPI()
 app.add_middleware(
